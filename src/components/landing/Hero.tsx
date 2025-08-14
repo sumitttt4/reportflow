@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { Play, ArrowRight, Clock, TrendingUp, Zap } from 'lucide-react';
 import Button from '../ui/Button';
@@ -13,17 +13,17 @@ export default function Hero() {
             <div className="space-y-4">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-200 dark:bg-blue-900/20 dark:border-blue-700">
                 <Zap className="h-4 w-4 text-blue-600 dark:text-blue-400 mr-2" />
-                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">AI-Powered Automation</span>
+                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">Simple. Fast. Reliable.</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                Save 10+ Hours Weekly on
+                Stop Wrestling with
                 <span className="text-blue-600 dark:text-blue-400 block">Business Reports</span>
               </h1>
               
               <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
-                Connect your data sources once. Get automated, AI-enhanced reports delivered to your inbox or Slack. 
-                Focus on decisions, not data gathering.
+                Tired of spending hours on repetitive reports? Connect your data once, and let us handle the rest. 
+                Get clear, actionable insights delivered right to your team.
               </p>
             </div>
 

@@ -1,14 +1,71 @@
 import React, { useState } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 import Button from './ui/Button';
 import Input from './ui/Input';
 import { Mail, User } from 'lucide-react';
 
 export default function WaitlistForm() {
+  const stripePromise = loadStripe('pk_test_51Rvkh0PlhqQiwCGFbxsThfEj5FyXfRqLJtIhyjVnon7BKn2gE7FMGfTTfG7vf5ivV4Z5aq98S1x1Ur1o1Nh7evZr00YPxHOCBC'); // Replace with your Stripe publishable key
+  // Stripe payment handler
+  const handleStripePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      if (!stripe) {
+        alert('Stripe not loaded');
+        return;
+      }
+      // Redirect to Stripe Checkout
+      const response = await fetch('http://localhost:3001/api/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: 5000, currency: 'usd' }),
+      });
+      const data = await response.json();
+      // You need a Price ID for Stripe Checkout
+      const result = await stripe.redirectToCheckout({
+        lineItems: [{ price: 'price_1Rvkh0PlhqQiwCGFbxsThfEj5FyXfRqLJtIhyjVnon7BKn2gE7FMGfTTfG7vf5ivV4Z5aq98S1x1Ur1o1Nh7evZr00YPxHOCBC', quantity: 1 }], // Updated to your actual Price ID
+        mode: 'payment',
+        successUrl: window.location.origin + '/success',
+        cancelUrl: window.location.origin + '/cancel',
+      });
+      if (result.error) {
+        alert(result.error.message);
+      }
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      alert('Payment error: ' + errorMsg);
+    }
+  };
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendMessage, setResendMessage] = useState('');
+  const handleResendEmail = async () => {
+    setResendLoading(true);
+    setResendMessage('');
+    try {
+      const response = await fetch('http://localhost:5000/api/resend-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+      });
+      if (response.ok) {
+        setResendMessage('Confirmation email resent successfully!');
+      } else {
+        const error = await response.text();
+        setResendMessage('Failed to resend email. ' + error);
+      }
+    } catch (error) {
+      setResendMessage('Failed to resend email. Please try again.');
+    } finally {
+      setResendLoading(false);
+    }
+  };
 
   const validateForm = () => {
     const newErrors: { name?: string; email?: string } = {};
@@ -73,9 +130,25 @@ export default function WaitlistForm() {
 
         <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 transition-colors duration-300">
           {successMessage ? (
-            <div className="text-green-600 dark:text-green-400 text-lg font-medium mb-4">
-              {successMessage}
-            </div>
+            <>
+              <div className="text-green-600 dark:text-green-400 text-lg font-medium mb-4">
+                {successMessage}
+              </div>
+              <Button
+                type="button"
+                size="lg"
+                loading={resendLoading}
+                onClick={handleResendEmail}
+                className="w-full sm:w-auto mb-4"
+              >
+                Resend Email
+              </Button>
+              {resendMessage && (
+                <div className="text-blue-600 dark:text-blue-400 text-base font-medium mb-2">
+                  {resendMessage}
+                </div>
+              )}
+            </>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="relative">
@@ -124,6 +197,15 @@ export default function WaitlistForm() {
                   disabled={loading}
                 >
                   Clear Form
+                </Button>
+                <Button
+                  type="button"
+                  variant="primary"
+                  size="lg"
+                  onClick={handleStripePayment}
+                  className="w-full sm:w-auto"
+                >
+                  Pay $50
                 </Button>
               </div>
             </form>

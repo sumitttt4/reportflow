@@ -7,10 +7,11 @@ import Pricing from '../components/landing/Pricing';
 import Testimonials from '../components/landing/Testimonials';
 import CTA from '../components/landing/CTA';
 import Footer from '../components/landing/Footer';
+import WaitlistForm from '../components/WaitlistForm';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-transparent">
       <Header />
       <Hero />
       <Features />
@@ -18,6 +19,7 @@ export default function LandingPage() {
       <Testimonials />
       <Pricing />
       <CTA />
+      <WaitlistForm />
       <Footer />
     </div>
   );

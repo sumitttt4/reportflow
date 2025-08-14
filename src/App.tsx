@@ -1,4 +1,5 @@
 import React from 'react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
@@ -14,27 +15,39 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
 function App() {
   return (
-    <ThemeProvider> {/* Wrap with ThemeProvider */}
-      <AuthProvider>
-        <Router>
-          <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300"> {/* Apply dark mode classes */}
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route 
-                path="/dashboard/*" 
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                } 
+    <GoogleOAuthProvider clientId="483755923942-t2d881cv0apelplqu0r5e56fo6t0n7er.apps.googleusercontent.com">
+      <ThemeProvider>
+        <AuthProvider>
+          <Router>
+            <div className="min-h-screen w-full relative">
+              {/* Radial Gradient Background from Bottom */}
+              <div
+                className="absolute inset-0 z-0"
+                style={{
+                  background: "radial-gradient(125% 125% at 50% 90%, #fff 40%, #f9902dff 100%)",
+                }}
               />
-            </Routes>
-          </div>
-        </Router>
-      </AuthProvider>
-    </ThemeProvider>
+              {/* Your Content/Components */}
+              <div className="relative z-10 min-h-screen transition-colors duration-300">
+                <Routes>
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                  <Route 
+                    path="/dashboard/*" 
+                    element={
+                      <ProtectedRoute>
+                        <Dashboard />
+                      </ProtectedRoute>
+                    } 
+                  />
+                </Routes>
+              </div>
+            </div>
+          </Router>
+        </AuthProvider>
+      </ThemeProvider>
+    </GoogleOAuthProvider>
   );
 }
 

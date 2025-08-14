@@ -26,7 +26,7 @@ const plans = [
   },
   {
     name: 'Professional',
-    price: '$29',
+    price: '$15',
     period: 'per month',
     description: 'For growing businesses that need comprehensive reporting',
     features: [

@@ -1,53 +1,53 @@
-import React from 'react';
+
 import { Bot, Database, Calendar, Bell, TrendingUp, Shield, Zap, Download } from 'lucide-react';
 import Card from '../ui/Card';
 
 const features = [
   {
     icon: Bot,
-    title: 'AI-Powered Insights',
-    description: 'Automatically detect anomalies, trends, and generate executive summaries with advanced AI analysis.'
+    title: 'Smart Report Generation',
+    description: 'Our system learns from your data to highlight important changes and summarize key findings in plain English.'
   },
   {
     icon: Database,
-    title: 'Universal Connections',
-    description: 'Connect Google Sheets, CSV files, MySQL, Stripe, QuickBooks, and 50+ other data sources instantly.'
+    title: 'Easy Data Import',
+    description: 'Import from spreadsheets, databases, and popular tools like QuickBooks and Stripe - no coding needed.'
   },
   {
     icon: Calendar,
-    title: 'Smart Scheduling',
-    description: 'Set up daily, weekly, or monthly reports that automatically generate and deliver on time.'
+    title: 'Flexible Scheduling',
+    description: 'Choose when your reports run - daily, weekly, or monthly. Set it once and we handle the rest.'
   },
   {
     icon: Bell,
-    title: 'Multi-Channel Delivery',
-    description: 'Get reports via email, Slack, Teams, or download directly from your dashboard.'
+    title: 'Delivery Options',
+    description: 'Get reports right where you need them - in your email, Slack, or Teams. Access past reports anytime.'
   },
   {
     icon: TrendingUp,
-    title: 'Advanced Analytics',
-    description: 'Visualize trends, compare periods, and get predictive insights to drive business decisions.'
+    title: 'Clear Visualizations',
+    description: 'Turn complex data into easy-to-understand charts and graphs. Compare performance across time periods.'
   },
   {
     icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Bank-level encryption, SOC 2 compliance, and role-based access controls protect your data.'
+    title: 'Data Security',
+    description: 'Your data is encrypted and protected. Control exactly who sees what with team permissions.'
   },
   {
     icon: Zap,
-    title: 'Auto-Mapping',
-    description: 'AI automatically maps your data fields and suggests optimal report structures.'
+    title: 'Quick Setup',
+    description: 'We help identify your key metrics and create report templates that match your needs.'
   },
   {
     icon: Download,
-    title: 'Multiple Formats',
-    description: 'Export reports as PDF, CSV, Excel, or interactive web dashboards with one click.'
+    title: 'Export Flexibility',
+    description: 'Save reports as PDFs for meetings, spreadsheets for analysis, or share interactive dashboards.'
   }
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="features" className="py-20 bg-transparent transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">

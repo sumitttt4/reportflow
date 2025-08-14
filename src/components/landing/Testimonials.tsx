@@ -1,10 +1,10 @@
-import React from 'react';
+
 import { Star } from 'lucide-react';
 import Card from '../ui/Card';
 
 const testimonials = [
   {
-    content: "ReportFlow cut our monthly reporting time from 3 days to 30 minutes. The AI insights helped us discover trends we never would have spotted manually.",
+    content: "I was skeptical at first, but ReportFlow has been a game-changer. What used to take my team several days now takes just minutes, and the insights are actually meaningful.",
     author: "Sarah Chen",
     role: "Operations Manager",
     company: "TechStart Solutions",
@@ -12,7 +12,7 @@ const testimonials = [
     rating: 5
   },
   {
-    content: "As a small business owner, I was drowning in spreadsheets. Now I get comprehensive reports automatically every week. It's like having a data analyst on staff.",
+    content: "Running a small marketing agency meant I was constantly juggling client reports. ReportFlow not only automated this but also helped me identify opportunities I was missing. Worth every penny.",
     author: "Michael Rodriguez",
     role: "Founder & CEO",
     company: "Rodriguez Marketing",
@@ -20,19 +20,19 @@ const testimonials = [
     rating: 5
   },
   {
-    content: "The integration with our existing tools was seamless. Setup took minutes, and the automated anomaly detection already caught two billing errors this month.",
+    content: "We actually caught a major billing discrepancy in our first week using ReportFlow. The automated checks have already paid for the annual subscription several times over.",
     author: "Jennifer Thompson",
     role: "Finance Director",
     company: "GrowthCorp Inc",
     avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-    rating: 5
+    rating: 4
   }
 ];
 
 const stats = [
-  { value: "10,000+", label: "Reports Generated Monthly" },
-  { value: "95%", label: "Time Reduction" },
-  { value: "500+", label: "Happy Customers" },
+  { value: "5,000+", label: "Reports Generated Monthly" },
+  { value: "85%", label: "Average Time Saved" },
+  { value: "200+", label: "Active Businesses" },
   { value: "99.9%", label: "Uptime Guarantee" }
 ];
 

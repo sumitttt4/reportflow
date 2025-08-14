@@ -198,15 +198,7 @@ export default function WaitlistForm() {
                 >
                   Clear Form
                 </Button>
-                <Button
-                  type="button"
-                  variant="primary"
-                  size="lg"
-                  onClick={handleStripePayment}
-                  className="w-full sm:w-auto"
-                >
-                  Pay $50
-                </Button>
+               
               </div>
             </form>
           )}

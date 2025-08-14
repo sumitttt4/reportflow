@@ -37,7 +37,7 @@ const socialLinks = [
   { name: 'Twitter', icon: Twitter, href: '#' },
   { name: 'LinkedIn', icon: Linkedin, href: '#' },
   { name: 'GitHub', icon: Github, href: '#' },
-  { name: 'Email', icon: Mail, href: 'mailto:hello@reportflow.com' }
+  { name: 'Email', icon: Mail, href: 'mailto:reportflow@reportflow.netlify.app' }
 ];
 
 export default function Footer() {
@@ -105,6 +105,9 @@ export default function Footer() {
                 Start your free trial →
               </Link>
             </div>
+          </div>
+          <div className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+            Contact us: <a href="mailto:reportflow@reportflow.netlify.app" className="underline text-blue-600">reportflow@reportflow.netlify.app</a>
           </div>
         </div>
       </div>

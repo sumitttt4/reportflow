@@ -54,7 +54,7 @@ const features = [
 
 export default function Features() {
 	return (
-		<section className="py-20 transition-colors duration-300 bg-black">
+		<section className="py-20 transition-colors duration-300 bg-gradient-to-b from-gray-50 to-white dark:from-black dark:to-black">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 				<h2 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
 					Everything You Need to Automate Reports

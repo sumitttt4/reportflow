@@ -5,13 +5,13 @@ import Button from '../ui/Button';
 
 export default function CTA() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white dark:from-blue-800 dark:to-blue-900 transition-colors duration-300">
+    <section className="py-20 bg-white dark:bg-black transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-6">
-          <h2 className="text-3xl lg:text-5xl font-bold leading-tight">
+          <h2 className="text-3xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white">
             Ready to Reclaim Your Time?
           </h2>
-          <p className="text-xl text-blue-100 dark:text-blue-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Join thousands of business owners who've automated their reporting and 
             gained valuable insights. Start your free trial today.
           </p>
@@ -23,12 +23,12 @@ export default function CTA() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Button size="lg" variant="ghost" className="w-full sm:w-auto text-white hover:bg-white/10 dark:hover:bg-white/20">
+            <Button size="lg" variant="ghost" className="w-full sm:w-auto text-black hover:bg-blue/10 dark:hover:bg-white/20">
               Schedule Demo
             </Button>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 text-blue-100 dark:text-blue-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 text-black-100 dark:text-blue-300">
             <div className="flex items-center space-x-2">
               <Clock className="h-4 w-4" />
               <span className="text-sm">14-day free trial</span>
